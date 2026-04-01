@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title data-ja="食べ飲みスポット｜駒込日和" data-en="Food & Drink｜Komagome Day Walk">
+  食べ飲みスポット｜駒込日和
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  background-color:#a38675;
+  color:#130d0a;
+}
+
+
+#container {
+  width: 1000px;
+  margin: 0 auto;
+  background-color: #f5efe9;
+  box-shadow: 0 0 15px rgba(0,0,0,0.15);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Header */
+header {
+  height: 200px;
+  background-image: url("駒込ホーム.jpg");
+  background-size: cover;
+  background-position: center calc(50% - 60px);
+}
+
+.header {
+  color: #ffffff;
+  font-size: 52px;
+  font-weight: bold;
+  padding-top: 125px;
+  margin-left: 20px;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+}
+
+/* nav */
+nav { background-color:#d6a68a; }
+
+nav ul {
+  list-style:none;
+  display:flex;
+  justify-content:space-between;
+}
+
+nav a {
+  display:block;
+  width:160px;
+  text-align:center;
+  padding:12px 0;
+  text-decoration:none;
+  color:#fff;
+  font-weight:500;
+  border-radius:6px;
+}
+
+nav a:hover { background-color:#cb5a2d; }
+
+/* main */
+.main {
+  padding:25px;
+  text-align:center;
+}
+
+h2 {
+  margin-bottom:15px;
+  padding-top:15px;
+  color:#cb5a2d;
+  font-weight:600;
+  font-size:28px;
+}
+
+.description {
+  font-size:16px;
+  line-height:1.8;
+  margin-bottom:40px;
+}
+
+/* image links */
+.image-links {
+  display:flex;
+  justify-content:center;
+  gap:60px;
+  flex-wrap:wrap;
+}
+
+.image-link {
+  text-decoration:none;
+  color:#130d0a;
+}
+
+.image-link img {
+  width:300px;
+  height:350px;
+  object-fit:cover;
+  border-radius:12px;
+  box-shadow:0 4px 15px rgba(0,0,0,.25);
+  transition:.3s;
+}
+
+.image-link:hover img {
+  transform:scale(1.05);
+  box-shadow:0 6px 20px rgba(0,0,0,.3);
+}
+
+.image-link h3 {
+  margin-top:10px;
+  font-size:20px;
+  color:#cb5a2d;
+}
+
+/* floating language button */
+.lang-switch {
+  position:fixed;
+  top:20px;
+  right:20px;
+  background:#f5efe9;
+  color:#cb5a2d;
+  border-radius:999px;
+  padding:8px 14px;
+  font-size:14px;
+  cursor:pointer;
+  box-shadow:0 4px 10px rgba(0,0,0,.25);
+  z-index:9999;
+}
+.lang-switch:hover { background:#f1dbcd; }
+</style>
+</head>
+
+<body>
+
+<!-- language button -->
+<div class="lang-switch" id="langToggle">JP / EN</div>
+
+<div id="container">
+  <header>
+    <div class="header" data-ja="駒込日和" data-en="Komagome Day Walk">
+      駒込日和
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html" data-ja="ホーム" data-en="Home">ホーム</a></li>
+      <li><a href="食べ飲みスポット.html" data-ja="食べ飲みスポット" data-en="Food & Drink">食べ飲みスポット</a></li>
+      <li><a href="観光地.html" data-ja="観光地" data-en="Sightseeing">観光地</a></li>
+      <li><a href="アクセス.html" data-ja="アクセス" data-en="Access">アクセス</a></li>
+      <li><a href="お問い合わせ.html" data-ja="お問い合わせ" data-en="Contact">お問い合わせ</a></li>
+    </ul>
+  </nav>
+
+  <div class="main">
+    <h2 data-ja="食べ飲みスポット" data-en="Food & Drink Spots">
+      食べ飲みスポット
+    </h2>
+
+    <p class="description"
+      data-ja="人は食を通して文化や場所とつながると言われています。ここでは、駒込を訪れる際にぜひ味わってほしいおすすめのお店をご紹介します。"
+      data-en="Food connects people to culture and place. Here are recommended spots you should try when visiting Komagome.">
+      人は食を通して文化や場所とつながると言われています。<br>
+      ここでは、駒込を訪れる際にぜひ味わってほしいおすすめのお店をご紹介します。
+    </p>
+
+    <div class="image-links">
+      <a href="おにぎり.html" class="image-link">
+        <img src="onigirimain.jpg" alt="">
+        <h3 data-ja="おにぎりや 駒込" data-en="Onigiriya Komagome">おにぎりや 駒込</h3>
+      </a>
+
+      <a href="餅.html" class="image-link">
+        <img src="mochimain.jpg" alt="">
+        <h3 data-ja="つづみ団子" data-en="Tsudzumi Dango">つづみ団子</h3>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const btn = document.getElementById("langToggle");
+  let lang = localStorage.getItem("lang") || "ja";
+  
+  function setLang(l) {
+    document.documentElement.lang = l;
+    document.querySelectorAll("[data-ja]").forEach(el => {
+      el.textContent = el.dataset[l];
+    });
+    localStorage.setItem("lang", l);
+  }
+  
+  btn.onclick = () => {
+    lang = (lang === "ja") ? "en" : "ja";
+    setLang(lang);
+  };
+  
+  setLang(lang);
+  </script>
+  
+</body>
+</html>

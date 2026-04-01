@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>駒込日和｜ホーム</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+    background-color: #a38675;
+    color: #130d0a;
+  }
+  
+  /* ===== Floating Language Button ===== */
+  .lang-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #f5efe9;
+    color: #cb5a2d;
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  }
+  .lang-switch:hover {
+    background: #f1dbcd;
+  }
+
+  #container {
+    width: 1000px;
+    margin: 0 auto;
+    background-color: #f5efe9;
+    box-shadow: 0 0 15px rgba(0,0,0,0.15);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  /* Header */
+  header {
+    height: 200px;
+    background-image: url("駒込ホーム.jpg");
+    background-size: cover;
+    background-position: center calc(50% - 60px);
+  }
+  
+  .header {
+    color: #ffffff;
+    font-size: 52px;
+    font-weight: bold;
+    padding-top: 125px;
+    margin-left: 20px;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+  }
+
+nav {
+  background-color: #d6a68a;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav a {
+  display: block;
+  text-align: center;
+  width: 160px;
+  text-decoration: none;
+  color: #fff;
+  padding: 12px 0;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  background-color: #cb5a2d;
+}
+
+.main {
+  padding: 60px 80px;
+  min-height: 600px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-top: 60px;
+  color: #130d0a;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background-color: #cb5a2d;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+p {
+  line-height: 2;
+  color: #130d0a;
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.mascot {
+  display: block;
+  width: 260px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 40px auto 20px auto;
+  box-shadow: 0 4px 12px #447f93;
+}
+
+.main img:not(.mascot) {
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  margin: 40px auto 0 auto;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- Language Toggle -->
+<div class="lang-switch" id="langToggle">JP / EN</div>
+
+<div id="container">
+  <header>
+    <div class="header" data-ja="駒込日和" data-en="Komagome Day Walk">
+      駒込日和
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html" data-ja="ホーム" data-en="Home">ホーム</a></li>
+      <li><a href="食べ飲みスポット.html" data-ja="食べ飲みスポット" data-en="Food & Drink">食べ飲みスポット</a></li>
+      <li><a href="観光地.html" data-ja="観光地" data-en="Sightseeing">観光地</a></li>
+      <li><a href="アクセス.html" data-ja="アクセス" data-en="Access">アクセス</a></li>
+      <li><a href="お問い合わせ.html" data-ja="お問い合わせ" data-en="Contact">お問い合わせ</a></li>
+    </ul>
+  </nav>
+
+  <div class="main">
+
+    <img src="マスコット.jpg" alt="駒込マスコット" class="mascot">
+
+    <h2
+      data-ja="ようこそ、駒込日和へ"
+      data-en="Welcome to Komagome Day Walk">
+      ようこそ、駒込日和へ
+    </h2>
+
+    <p
+      data-ja="東京は、美しさと革新で世界に知られる街です。しかし、その中にはまだ多くの人に知られていない素敵な場所がたくさんあります。「駒込日和」は、制作者が心からおすすめしたい駒込エリアの魅力的なスポットを紹介するサイトです。このサイトを通して、駒込のあたたかさや魅力を感じていただけたら嬉しいです。ご覧いただき、ありがとうございます。"
+      data-en="Tokyo is known worldwide for its beauty and innovation. However, many wonderful places remain undiscovered. Komagome Day Walk introduces charming spots in the Komagome area that the creator truly recommends. We hope you can feel the warmth and everyday charm of Komagome through this site. Thank you for visiting.">
+      東京は、美しさと革新で世界に知られる街です。
+    </p>
+
+    <img src="maingirly.jpg" alt="駒込の風景">
+  </div>
+</div>
+
+
+<script>
+  const btn = document.getElementById("langToggle");
+  let lang = localStorage.getItem("lang") || "ja";
+  
+  function setLang(l) {
+    document.documentElement.lang = l;
+    document.querySelectorAll("[data-ja]").forEach(el => {
+      el.textContent = el.dataset[l];
+    });
+    localStorage.setItem("lang", l);
+  }
+  
+  btn.onclick = () => {
+    lang = (lang === "ja") ? "en" : "ja";
+    setLang(lang);
+  };
+  
+  setLang(lang);
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>駒込日和</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:sans-serif;
+  background-color:#a38675;
+}
+
+/* ===== Floating Language Button ===== */
+.lang-switch {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #f5efe9;
+  color: #cb5a2d;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+.lang-switch:hover {
+  background: #f1dbcd;
+}
+
+/* ===== Layout ===== */
+#container {
+  width: 1000px;
+  margin: 0 auto;
+  background-color: #f5efe9;
+  box-shadow: 0 0 15px rgba(0,0,0,0.15);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Header */
+header {
+  height: 200px;
+  background-image: url("駒込ホーム.jpg");
+  background-size: cover;
+  background-position: center calc(50% - 60px);
+}
+
+.header {
+  color: #ffffff;
+  font-size: 52px;
+  font-weight: bold;
+  padding-top: 125px;
+  margin-left: 20px;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+}
+
+nav {
+  background-color: #d6a68a;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav a {
+  display: block;
+  width: 160px;
+  text-align: center;
+  padding: 12px 0;
+  text-decoration: none;
+  color: #fff;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  background-color: #cb5a2d;
+}
+
+.main {
+  padding: 25px;
+}
+
+h2 {
+  margin-bottom: 15px;
+  padding-top: 15px;
+  color: #cb5a2d;
+  text-align: center;
+  font-size: 28px;
+}
+
+p {
+  color: #130d0a;
+  padding-top: 15px;
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* ===== Slideshow ===== */
+.slideshow-container {
+  position: relative;
+  max-width: 600px;
+  height: 500px;
+  margin: 0 auto 30px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.slideshow-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+.slideshow-container img.active {
+  display: block;
+}
+
+.slide-btn {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  cursor: pointer;
+}
+
+.slide-btn.left { left: 0; }
+.slide-btn.right { right: 0; }
+
+/* ===== Map ===== */
+.map-frame {
+  display:block;
+  max-width:600px;
+  width:100%;
+  height:500px;
+  margin:20px auto;
+  border:none;
+  border-radius:10px;
+  background:#fff;
+  box-shadow:0 4px 15px rgba(0,0,0,0.3);
+}
+</style>
+</head>
+
+<body>
+
+<!-- Language Toggle -->
+<div class="lang-switch" onclick="toggleLang()">JP / EN</div>
+
+<div id="container">
+  <header>
+    <div class="header" data-ja="駒込日和" data-en="Komagome Day Walk">
+      駒込日和
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="./index.html" data-ja="ホーム" data-en="Home">ホーム</a></li>
+      <li><a href="./食べ飲みスポット.html" data-ja="食べ飲みスポット" data-en="Food & Drink">食べ飲みスポット</a></li>
+      <li><a href="./観光地.html" data-ja="観光地" data-en="Sightseeing">観光地</a></li>
+      <li><a href="./アクセス.html" data-ja="アクセス" data-en="Access">アクセス</a></li>
+      <li><a href="./お問い合わせ.html" data-ja="お問い合わせ" data-en="Contact">お問い合わせ</a></li>
+    </ul>
+  </nav>
+
+  <div class="main">
+    <h2 data-ja="つづみ団子" data-en="Tsudzumi Dango">つづみ団子</h2>
+
+    <p
+      data-ja="JR駒込駅南口から非常に便利な場所にあるつづみ団子では、和菓子の種類が豊富で季節限定の商品も楽しめます。"
+      data-en="Tsudzumi Dango is conveniently located near Komagome Station South Exit and offers a wide variety of traditional Japanese sweets, including seasonal items.">
+      JR駒込駅南口から非常に便利な場所にあるつづみ団子では、和菓子の種類が豊富で季節限定の商品も楽しめます。
+    </p>
+
+    <div class="slideshow-container">
+      <img src="mochisub1.jpg" class="active" alt="もち1">
+      <img src="mochisub2.jpg" alt="もち2">
+      <img src="mochisub3.jpg" alt="もち3">
+      <img src="mochimain.jpg" alt="もち4">
+      <div class="slide-btn left" onclick="changeSlide(-1)"></div>
+      <div class="slide-btn right" onclick="changeSlide(1)"></div>
+    </div>
+
+    <p
+      data-ja="ご自身のご都合に合わせてお店を訪れることができるよう、地図もご用意しました。"
+      data-en="We have also included a map to help you visit the shop at your convenience.">
+      ご自身のご都合に合わせてお店を訪れることができるよう、地図もご用意しました。
+    </p>
+
+    <iframe
+      class="map-frame"
+      src="https://www.google.com/maps?output=embed&z=15&ll=35.7374414,139.7465021&q=つづみ団子">
+    </iframe>
+  </div>
+</div>
+
+<script>
+/* ===== Language Toggle ===== */
+let currentLang = "ja";
+
+function toggleLang() {
+  currentLang = currentLang === "ja" ? "en" : "ja";
+  document.querySelectorAll("[data-ja]").forEach(el => {
+    el.textContent = el.dataset[currentLang];
+  });
+}
+
+/* ===== Slideshow ===== */
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slideshow-container img");
+
+function changeSlide(dir) {
+  slides[currentSlide].classList.remove("active");
+  currentSlide = (currentSlide + dir + slides.length) % slides.length;
+  slides[currentSlide].classList.add("active");
+}
+
+setInterval(() => changeSlide(1), 5000);
+</script>
+
+</body>
+</html>
